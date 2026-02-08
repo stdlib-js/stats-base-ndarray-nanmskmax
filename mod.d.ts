@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,16 +16,20 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the maximum value of a one-dimensional ndarray according to a mask, ignoring `NaN` values.
+* Calculates the maximum value of a one-dimensional ndarray according to a mask, ignoring `NaN` values.
 *
-* @module @stdlib/stats-base-ndarray-nanmskmax
+* @param arrays - array-like object containing an input ndarray and a mask ndarray
+* @returns maximum value
 *
 * @example
 * var ndarray = require( '@stdlib/ndarray-base-ctor' );
-* var nanmskmax = require( '@stdlib/stats-base-ndarray-nanmskmax' );
 *
 * var xbuf = [ 1.0, -2.0, 4.0, 2.0, NaN ];
 * var x = new ndarray( 'generic', xbuf, [ 5 ], [ 1 ], 0, 'row-major' );
@@ -36,12 +40,9 @@
 * var v = nanmskmax( [ x, mask ] );
 * // returns 2.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function nanmskmax<T extends typedndarray<number> = typedndarray<number>>( arrays: [ T, T ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = nanmskmax;
